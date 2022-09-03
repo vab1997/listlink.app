@@ -1,12 +1,7 @@
-import { redirect } from "@remix-run/node"
-import { Link } from "@remix-run/react"
 import Layout from "~/components/Layout"
 import LoginButton from "~/components/LoginButton"
-// import useUser from "~/hooks/useUser"
-import { loginGithub } from '../../services/login'
 
 export default function Index() {
-  // const {user} = useUser()
 
   return (
     <Layout>
