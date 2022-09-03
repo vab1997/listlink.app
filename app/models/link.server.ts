@@ -12,8 +12,6 @@ export async function createLink({ link, description }: { link: string; descript
     description,
   })
 
-  console.log(linkData)
-
   if (linkData) return []
 
   return linkData

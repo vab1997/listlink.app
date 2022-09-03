@@ -4,7 +4,6 @@ import {useUser} from "~/hooks/useUser"
 
 export default function LoginButton() {
   const user = useUser()
-  console.log(user)
 
 	if (user === undefined) return <div />
 

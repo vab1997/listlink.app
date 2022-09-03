@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 export const useUser = () => {
 	const [user, setUser] = useState<User | null>()
   const [loading, setLoading] = useState(true)
-  console.log(user)
 
   useEffect(() => {
     const rowUser = supabase.auth.getUser()
