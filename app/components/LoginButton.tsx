@@ -1,10 +1,10 @@
 import { Link } from "@remix-run/react"
 import { loginGithub } from "services/login"
-import { getUser } from "~/models/user.serve"
+import { useUser } from '~/hooks/useUser'
+
 
 export default function LoginButton() {
-  const { user } = getUser()
-
+  const { user } = useUser()
 
   if (user === undefined || user === null) {
     return (
