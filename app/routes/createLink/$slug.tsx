@@ -1,6 +1,7 @@
 import { ActionFunction, json } from "@remix-run/node"
 import { Form } from "@remix-run/react"
 import { createLink } from "~/models/link.server"
+import { useUser } from '~/hooks/useUser'
 
 type ActionData = {
   errors?: {
@@ -13,6 +14,7 @@ export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData()
   const link = formData.get('link')
   const description = formData.get('description')
+  const id_user = formData.get('id_user')
 
   if (typeof link !== "string" || link.length === 0) {
     return json<ActionData>(
@@ -28,16 +30,27 @@ export const action: ActionFunction = async ({ request }) => {
     );
   }
 
-  const linkData = await createLink({ link, description })
+  if (typeof id_user !== "string" || id_user.length === 0) {
+    return json<ActionData>(
+      { errors: { description: "id_user is required" } },
+      { status: 400 }
+    );
+  }
+
+  const linkData = await createLink({ link, description, id_user })
 
   return json({ linkData }, { status: 201 })
 }
 
 export default function NewLinkRoute() {
+  const { user } = useUser()
+  if (!user) return <div/>
+
   return (
     <>
       <Form method="post" className='flex justify-center items-center flex-col gap-4 w-1/2'>
         <h2 className="text-white font-bold text-2xl">Add link to list</h2>
+        <input className='hidden' name='id_user' value={user.id} />
         <div className="w-full px-6">
           <input 
             type='text'

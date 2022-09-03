@@ -6,10 +6,11 @@ export type Link = {
   read: boolean,
 }
 
-export async function createLink({ link, description }: { link: string; description: string }) {
+export async function createLink({ link, description, id_user }: { link: string; description: string, id_user: string }) {
   const { data: linkData } = await supabase.from('links').insert({
     link,
     description,
+    id_user
   })
 
   if (linkData) return []
