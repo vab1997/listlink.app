@@ -1,6 +1,7 @@
 import { supabase } from 'lib/supabaseClient'
 
 export type Link = {
+  id?: string
   link: string,
   description: string,
   read: boolean,
@@ -24,4 +25,13 @@ export async function getLinks() {
     .select('*')
 
   return links as Link[]
+}
+
+export async function updateRead ({ id, value }: { id: string, value: boolean }) {
+  const { data: linkUpdated } = await supabase
+  .from('links')
+  .update({ read: value })
+  .eq('id', id)
+  
+  return linkUpdated
 }

@@ -1,5 +1,4 @@
 import { supabase } from 'lib/supabaseClient'
-// import type { User } from 'lib/supabaseClient'
 
 import { useEffect, useState } from 'react'
 

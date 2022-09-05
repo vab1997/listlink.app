@@ -27,10 +27,10 @@ export default function LoginButton() {
           <img className='rounded-full w-14 h-14' src={user.avatar} alt={user.name} />
           <p className='font-medium text-white'>{user.name}</p>
           <Link
-            to='createLink'
+            to='list-of-links/create-link'
             className='text-md font-semibold px-2.5 py-1 rounded bg-blue-200 text-blue-800 hover:bg-blue-300'
             >
-            Create new Link
+            List of links
           </Link>
         </div>
       </>

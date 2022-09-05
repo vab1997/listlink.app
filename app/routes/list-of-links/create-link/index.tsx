@@ -1,7 +1,6 @@
 import { ActionFunction, json } from "@remix-run/node"
 import { Form } from "@remix-run/react"
 import { createLink } from "~/models/link.server"
-import { useUser } from '~/hooks/useUser'
 
 type ActionData = {
   errors?: {
@@ -43,14 +42,15 @@ export const action: ActionFunction = async ({ request }) => {
 }
 
 export default function NewLinkRoute() {
-  const { user } = useUser()
-  if (!user) return <div/>
+  const id_user = sessionStorage.getItem('id_user')
+
+  if (!id_user) return 'You are not logged in'
 
   return (
     <>
       <Form method="post" className='flex justify-center items-center flex-col gap-4 w-1/2'>
         <h2 className="text-white font-bold text-2xl">Add link to list</h2>
-        <input className='hidden' name='id_user' value={user.id} />
+        <input className='hidden' name='id_user' value={id_user} />
         <div className="w-full px-6">
           <input 
             type='text'
