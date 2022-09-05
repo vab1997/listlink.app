@@ -7,10 +7,14 @@ import { useUser } from '~/hooks/useUser'
 export default function LoginButton() {
   const { user } = useUser()
 
+  if (user) {
+    window.sessionStorage.setItem('id_user', JSON.stringify(user.id))
+  }
+
   const logoutGithub = async () => {
     const { error } = await supabase.auth.signOut()
     console.error(error)
-    sessionStorage.set('userId', '')
+    sessionStorage.setItem('id_user', '')
   }
 
   if (user === undefined || user === null) {
