@@ -29,7 +29,7 @@ export default function ListOfLinkPost() {
             </div>
           )}
           {links.map(({ id, link, description, read }) => (
-            <div className='flex items-center py-1.5 px-2 mt-2 space-x-2 w-full rounded-lg divide-x shadow text-gray-400 divide-gray-700 space-x bg-gray-900'>
+            <div key={id} className='flex items-center py-1.5 px-2 mt-2 space-x-2 w-full rounded-lg divide-x shadow text-gray-400 divide-gray-700 space-x bg-gray-900'>
               <p>
                 {read ? '✅' : '❌'} 
               </p>
