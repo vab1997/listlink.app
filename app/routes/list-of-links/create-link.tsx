@@ -39,8 +39,6 @@ export const loader: LoaderFunction = async ({ request }) => {
     return { ...folder, links: linksForFolder }
   })
 
-  console.log(linksForFolder)
-
   return  json<LoaderData>({ linksForFolder })
 }
 

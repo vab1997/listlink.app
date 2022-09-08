@@ -15,8 +15,7 @@ export async function createLink({ link, description, id_user, id_folder }: { li
     id_user,
     id_folder
   })
-
-  console.log(linkData)
+  
   if (linkData) return []
 
   return linkData
