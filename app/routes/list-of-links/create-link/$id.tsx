@@ -76,7 +76,7 @@ export default function NewLinkRoute() {
   return (
     <>
        {/* <Toaster
-        position="bottom-right"
+        position='bottom-right'
         reverseOrder={false}
       /> */}
       <div className='w-full flex flex-col items-center'>
@@ -103,11 +103,11 @@ export default function NewLinkRoute() {
             <label className='absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'>Description</label>
           </div>
           <div className='relative z-0 mb-4 w-full px-6'>
-            <label className="sr-only">Underline select</label>
+            <label className='sr-only'>Underline select</label>
             <select 
               name='folder'
               defaultValue={folders[0].id}
-              className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-400 border-gray-600 focus:outline-none peer"
+              className='block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-gray-400 border-gray-600 focus:outline-none peer'
             >
               {folders.map(({id, name}) => (
                 <option key={id} value={id}>{name}</option>

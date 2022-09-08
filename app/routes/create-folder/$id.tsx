@@ -63,7 +63,7 @@ export default function NewFolderRoute() {
       <section className='flex justify-between flex-col-reverse py-8 md:flex-row gap-8'>
         <BackToHome />
 
-        <div className="relative mb-3 inline-block text-center w-full">
+        <div className='relative mb-3 inline-block text-center w-full'>
           <h1 className='flex items-center mb-4 justify-center text-white font-medium text-2xl'>List of folders</h1>
           {folders.length === 0
             ? (
@@ -74,8 +74,8 @@ export default function NewFolderRoute() {
             )
             : (
               folders.map((folder) => (
-                <div key={folder.id} className="inline-flex mb-2 w-full justify-center items-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30">
-                  <svg className='mr-2' viewBox="0 0 490 490" fill='#fff' width={20} height={20}><path d="M410.3 447.2H0l79.7-289.3H490z"/><path d="M62.2 134.9h348.1V90.6h-205l-20.6-47.8H0v318.1z"/></svg>
+                <div key={folder.id} className='inline-flex mb-2 w-full justify-center items-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white'>
+                  <svg className='mr-2' viewBox='0 0 490 490' fill='#fff' width={20} height={20}><path d='M410.3 447.2H0l79.7-289.3H490z'/><path d='M62.2 134.9h348.1V90.6h-205l-20.6-47.8H0v318.1z'/></svg>
                   <h1>{folder.name}</h1>
                 </div>
               ))
