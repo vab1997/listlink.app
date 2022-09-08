@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react"
-import { supabase } from "lib/supabaseClient"
 import { loginGithub } from "services/login"
+import { supabase } from "lib/supabaseClient"
 import { useUser } from '~/hooks/useUser'
 
 

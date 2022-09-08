@@ -1,14 +1,16 @@
-import type { LoaderFunction } from '@remix-run/node'
-import { json } from '@remix-run/node'
-import { Link, Outlet, useLoaderData } from '@remix-run/react'
-import Layout from '~/components/Layout'
-import { getLinks } from '~/models/link.server'
-import type { Link as LinkType } from '~/models/link.server'
-
-import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
+import { Link, Outlet, useLoaderData } from '@remix-run/react'
+import { json } from '@remix-run/node'
+import type { LoaderFunction } from '@remix-run/node'
+
 import { getFolders } from '~/models/folder.server'
+import type { Link as LinkType } from '~/models/link.server'
+import { getLinks } from '~/models/link.server'
 import BackToHome from '~/components/BackToHome'
+import Layout from '~/components/Layout'
+import checkIcon from 'public/check.webp'
+import crossIcon from 'public/cross.webp'
+import { Menu, Transition } from '@headlessui/react'
 
 type FolderWihtLinks = {
   id: string
@@ -68,13 +70,16 @@ export default function ListOfLinkPost() {
        <BackToHome />
 
         <div className='max-w-xl w-full px-4 py-2'>
-          <h1 className='flex items-center mb-4 justify-center text-white font-medium text-2xl'>List of links</h1>
+          <h1 className='flex items-center mb-4 gap-2 justify-center text-white font-medium text-2xl'>
+            List of links
+            <svg width="32" height="32" fill="none"><path d="M4 7a2 2 0 0 1 2-2h23a2 2 0 0 1 2 2v22a2 2 0 0 1-2 2H4a3 3 0 0 1-3-3V10a3 3 0 0 1 3-3Z" fill="#B4ACBC"/><path d="M28 10a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h25.5a1.5 1.5 0 0 1-1.5-1.5V10Z" fill="#F3EEF8"/><path d="M4 11a1 1 0 0 1 1-1h20a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 3.5a.5.5 0 0 1 .5-.5h21a.5.5 0 0 1 0 1h-21a.5.5 0 0 1-.5-.5ZM19.5 17a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6Zm-.5 3.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5Zm.5 2.5a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6Zm-.5 3.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5ZM6 17a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H6Z" fill="#998EA4"/></svg>
+          </h1>
 
           {linksForFolder.map(({id, name, links}) => (
             <Menu key={id} as="div" className="relative mb-3 inline-block text-center w-full">
               <div>
                 <Menu.Button className="inline-flex gap-2 w-full justify-center items-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30">
-                  <svg viewBox="0 0 490 490" fill='#fff' width={20} height={20}><path d="M410.3 447.2H0l79.7-289.3H490z"/><path d="M62.2 134.9h348.1V90.6h-205l-20.6-47.8H0v318.1z"/></svg>
+                  <svg width="24" height="24" fill="none"><path d="m15.385 7.39-2.477-2.475A3.121 3.121 0 0 0 10.698 4H4.126A2.125 2.125 0 0 0 2 6.125V13.5h28v-3.363a2.125 2.125 0 0 0-2.125-2.125H16.887a2.126 2.126 0 0 1-1.502-.621Z" fill="#FFB02E"/><path d="M27.875 30H4.125A2.118 2.118 0 0 1 2 27.888V13.112C2 11.945 2.951 11 4.125 11h23.75c1.174 0 2.125.945 2.125 2.112v14.776A2.118 2.118 0 0 1 27.875 30Z" fill="#FCD53F"/></svg>
                   {name}
                 </Menu.Button>
               </div>
@@ -93,7 +98,11 @@ export default function ListOfLinkPost() {
                       <Menu.Item key={id}>
                         <div className='flex items-center py-1.5 px-2 mt-2 space-x-2 w-full rounded-lg divide-x shadow text-gray-400 divide-gray-700 space-x bg-gray-900'>
                           <p>
-                            {read ? '✅' : '❌'} 
+                            {read ? (
+                              <img src={checkIcon} className='h-6 inline-block' />
+                            ) : (
+                              <img src={crossIcon} className='h-6 inline-block' />
+                            )} 
                           </p>
                           <a 
                             className='hover:text-white w-[150px] px-1 font-medium text-left text-white/50 truncate' 

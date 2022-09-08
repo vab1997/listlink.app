@@ -1,10 +1,10 @@
+import type { LoaderFunction } from '@remix-run/node'
 import { ActionFunction, json } from '@remix-run/node'
 import { Form, useLoaderData } from '@remix-run/react'
 import { getFolders } from '~/models/folder.server'
-import type { LoaderFunction } from '@remix-run/node'
-import Layout from '~/components/Layout'
 import createFolder from '~/models/folder.server'
 import BackToHome from '~/components/BackToHome'
+import Layout from '~/components/Layout'
 
 type ActionData = {
   errors?: {
@@ -64,7 +64,11 @@ export default function NewFolderRoute() {
         <BackToHome />
 
         <div className='relative mb-3 inline-block text-center w-full'>
-          <h1 className='flex items-center mb-4 justify-center text-white font-medium text-2xl'>List of folders</h1>
+          <h1 className='flex items-center gap-2 mb-4 justify-center text-white font-medium text-2xl'>
+            List of folders
+            <svg width="32" height="32" fill="none"><path d="M16.833 10H25c1.149 0 2 .851 2 2v1L14 23.5 2.61 28.23C2.22 27.63 2 26.773 2 26V8.08A2.08 2.08 0 0 1 4.08 6h6.675c.809 0 1.585.32 2.158.89l2.453 2.498c.39.387.918.612 1.467.612Z" fill="#FFB02E"/><path d="M27.911 13H10.886a3.68 3.68 0 0 0-3.463 2.439C2.832 28.604 3.211 27.658 3.095 27.806a.548.548 0 0 1-.453.25.35.35 0 0 1-.182-.054 3.783 3.783 0 0 0 3.585 2h17.952a2.033 2.033 0 0 0 1.939-1.453l3.962-12.835A2.086 2.086 0 0 0 27.911 13Z" fill="#FCD53F"/></svg>
+            {/* <img src={folderIcon} className='h-6 inline-block' /> */}
+          </h1>
           {folders.length === 0
             ? (
               <div className='flex items-center justify-center py-3 px-4 mt-6 space-x-4 w-full rounded-lg divide-x shadow text-gray-400 divide-gray-700 space-x bg-gray-900'>
@@ -74,8 +78,8 @@ export default function NewFolderRoute() {
             )
             : (
               folders.map((folder) => (
-                <div key={folder.id} className='inline-flex mb-2 w-full justify-center items-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white'>
-                  <svg className='mr-2' viewBox='0 0 490 490' fill='#fff' width={20} height={20}><path d='M410.3 447.2H0l79.7-289.3H490z'/><path d='M62.2 134.9h348.1V90.6h-205l-20.6-47.8H0v318.1z'/></svg>
+                <div key={folder.id} className='inline-flex mb-2 w-full gap-2 justify-center items-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white'>
+                  <svg width="24" height="24" fill="none"><path d="m15.385 7.39-2.477-2.475A3.121 3.121 0 0 0 10.698 4H4.126A2.125 2.125 0 0 0 2 6.125V13.5h28v-3.363a2.125 2.125 0 0 0-2.125-2.125H16.887a2.126 2.126 0 0 1-1.502-.621Z" fill="#FFB02E"/><path d="M27.875 30H4.125A2.118 2.118 0 0 1 2 27.888V13.112C2 11.945 2.951 11 4.125 11h23.75c1.174 0 2.125.945 2.125 2.112v14.776A2.118 2.118 0 0 1 27.875 30Z" fill="#FCD53F"/></svg>
                   <h1>{folder.name}</h1>
                 </div>
               ))
@@ -83,7 +87,9 @@ export default function NewFolderRoute() {
         </div>
 
         <div className='w-full flex flex-col items-center'>
-          <h2 className='text-white font-bold text-2xl pb-4'>Create a new folder</h2>
+          <h2 className='text-white font-bold text-2xl pb-4'>
+            Create a new folder
+          </h2>
           <Form method='post' className='flex  items-center flex-col gap-4 w-full'>
             <div className='relative z-0 mb-4 w-full px-6'>
               <input 
@@ -101,7 +107,7 @@ export default function NewFolderRoute() {
             <button 
               type='submit' 
               className='text-white cursor-default bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center'
-            >Submit
+            >Create folder
             </button>
           </Form>
         </div>

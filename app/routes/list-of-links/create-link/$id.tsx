@@ -1,8 +1,8 @@
+import type { LoaderFunction } from '@remix-run/node'
 import { ActionFunction, json } from '@remix-run/node'
 import { Form, useLoaderData } from '@remix-run/react'
 import { createLink } from '~/models/link.server'
 import { getFolders } from '~/models/folder.server'
-import type { LoaderFunction } from '@remix-run/node'
 import toast, { Toaster } from 'react-hot-toast'
 
 type ActionData = {
@@ -117,7 +117,7 @@ export default function NewLinkRoute() {
           <button 
             type='submit' 
             className='text-white cursor-default bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center'
-          >Submit
+          >Create link
           </button>
         </Form>
       </div>
