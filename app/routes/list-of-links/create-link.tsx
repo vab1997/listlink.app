@@ -65,7 +65,7 @@ export default function ListOfLinkPost() {
 
   return (
     <Layout>
-      <section className='flex justify-between py-8'>
+      <section className='flex justify-between flex-col-reverse py-8 md:flex-row gap-8'>
 
        <BackToHome />
 

@@ -605,6 +605,11 @@ video {
   position: relative;
 }
 
+.inset-x-0 {
+  left: 0px;
+  right: 0px;
+}
+
 .top-3 {
   top: 0.75rem;
 }
@@ -623,6 +628,22 @@ video {
 
 .top-6 {
   top: 1.5rem;
+}
+
+.top-10 {
+  top: 2.5rem;
+}
+
+.top-20 {
+  top: 5rem;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.right-0 {
+  right: 0px;
 }
 
 .z-\[100\] {
@@ -657,6 +678,26 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mt-11 {
+  margin-top: 2.75rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
 .block {
   display: block;
 }
@@ -671,6 +712,10 @@ video {
 
 .inline-flex {
   display: inline-flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-screen {
@@ -697,6 +742,10 @@ video {
   height: 2.5rem;
 }
 
+.h-9 {
+  height: 2.25rem;
+}
+
 .max-h-80 {
   max-height: 20rem;
 }
@@ -719,6 +768,14 @@ video {
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-9 {
+  width: 2.25rem;
 }
 
 .max-w-xl {
@@ -770,6 +827,10 @@ video {
   flex-direction: column;
 }
 
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
 .place-content-center {
   place-content: center;
 }
@@ -792,6 +853,10 @@ video {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 .gap-x-2 {
@@ -1252,7 +1317,103 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:inset-x-0 {
+    left: 0px;
+    right: 0px;
+  }
+
+  .sm\:top-5 {
+    top: 1.25rem;
+  }
+
+  .sm\:left-4 {
+    left: 1rem;
+  }
+
+  .sm\:right-0 {
+    right: 0px;
+  }
+
+  .sm\:right-4 {
+    right: 1rem;
+  }
+
+   {
+    right: -0.5rem;
+  }
+
+  .sm\:right-auto {
+    right: auto;
+  }
+
   .sm\:w-auto {
     width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:inset-x-0 {
+    left: 0px;
+    right: 0px;
+  }
+
+  .md\:top-0 {
+    top: 0px;
+  }
+
+  .md\:bottom-0 {
+    bottom: 0px;
+  }
+
+  .md\:top-10 {
+    top: 2.5rem;
+  }
+
+  .md\:top-20 {
+    top: 5rem;
+  }
+
+  .md\:left-4 {
+    left: 1rem;
+  }
+
+  .md\:mt-4 {
+    margin-top: 1rem;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:h-6 {
+    height: 1.5rem;
+  }
+
+  .md\:h-10 {
+    height: 2.5rem;
+  }
+
+  .md\:w-6 {
+    width: 1.5rem;
+  }
+
+  .md\:w-10 {
+    width: 2.5rem;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .md\:gap-4 {
+    gap: 1rem;
   }
 }
